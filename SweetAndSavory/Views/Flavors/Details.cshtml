@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model SweetAndSavory.Models.Flavor;
+@model SweetAndSavory.Models.Flavor
 
 <h2>Flavor Details</h2>
 <hr />
@@ -17,7 +17,7 @@ else
   <h3>Treats using this Flavor:</h3>
   @foreach (var join in Model.Treats)
   {
-    <p>@Html.ActionLink($"{join.Treat.Name}", "Details", new { id = join.Treat.TreatId })</p>
+    <p>@Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new { id = join.Treat.TreatId })</p>
   }
 }
 <br>
