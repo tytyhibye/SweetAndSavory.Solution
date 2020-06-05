@@ -72,8 +72,9 @@ footer{
 }
 
 .btn:active {
-  background-color: rgb(211, 211, 211);
-  transform: scale(.95);
+  background-color: rgb(209, 59, 142);
+  border: none;
+  /* transform: scale(.95); */
 }
 
 li {
