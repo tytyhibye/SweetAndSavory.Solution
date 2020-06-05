@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavory.Models.Recipe
+
+<h3>Add a new Treat:</h3>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { required = "required" })
+  <br>
+  @Html.LabelFor(model => model.Ingredients)
+  @Html.TextBoxFor(model => model.Ingredients, new { required = "required" })
+  <br>
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new { type ="list", required = "required" })
+
+  <br>
+  @Html.Label("Add Flavor to recipe:")
+  @Html.DropDownList("FlavorId")  // for required: , null, htmlAttributes: new { @class = "form-control", required = "required" }
+  <br>
+  <br>
+  <input type="submit" value="Create Recipe" class="btn" />
+}

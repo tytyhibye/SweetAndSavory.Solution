@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavory.Models
+@model IEnumerable<SweetAndSavory.Models.Treat>
+<hr />
+<h3>All Treats</h3>
+<hr />
+<form action="/IngredientSearch" method="get">
+  <br>
+  <p>Search Treat By Ingredient </p>
+  <input type = "text" name="search">
+  <input type="submit" value="search" class="btn">
+</form>
+@if (Model.Any())
+{
+  @foreach(Treat Treat in Model)
+  {
+    <h3>@Html.ActionLink($"{Treat.Name}", "Details", new { id = Treat.TreatId })</h3>
+  }
+}
+else
+{
+  <h3>No Treats have been added yet!</h3>
+} 
+<br>
+<form action="/Treats/Create" method="get">
+  <input type="submit" value="Add new Treat" class="btn">
+  </form>
