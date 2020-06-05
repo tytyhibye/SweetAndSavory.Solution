@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavory.Models;
+
+<h3>Search Results:</h3>
+<hr />
+
+@foreach(Treat treat in Model)
+{
+  <h4>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new {id = treat.TreatId})</h4>
+}
