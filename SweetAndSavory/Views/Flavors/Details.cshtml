@@ -14,7 +14,7 @@
 }
 else
 {
-  <h3>Treats using this Flavor:</h3>
+  <h3>Treats Tagged With This Flavor:</h3>
   @foreach (var join in Model.Treats)
   {
     <p>@Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new { id = join.Treat.TreatId })</p>

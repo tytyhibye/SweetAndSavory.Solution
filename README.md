@@ -4,7 +4,7 @@
 
 ## _Description_
 
-Pierres Sweet and Savory is an application allowing the user to add, edit, organize and store the inventory of their bakery upon registration and login. All registered users have access to all inventory item details. The user can search for an item by associated flavors and also by ingredient used in the recipe of the item for allergy reasons.
+Pierre's Sweet and Savory is an application allowing the user to create, edit, delete, tag, organize and store the inventory of their bakery upon registration and login. All registered users have access to all inventory item details but only the author of the entries has access to the edit, delete and tag functionality of them. The user can search for an item by associated flavors and also by ingredient used in the recipe of the item for allergy reasons.
 
 
 ## _Setup/Installation Requirements_ 
