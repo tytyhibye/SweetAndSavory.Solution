@@ -120,7 +120,7 @@ body {
 }
 
 .jumbotron {
-  background-image: url(~/img/frame.jpg);
+  background-image: url('~/img/frame.png')!important;
   background-size: cover;
   background-color: rgb(238, 229, 229, 0.34);
   opacity: 0.34;
