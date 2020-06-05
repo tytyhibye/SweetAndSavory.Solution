@@ -19,9 +19,9 @@ else
   @foreach(var join in Model.Flavors)
   {
     <p>@join.Flavor.Name</p>
-    @if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser) // modify this for Admin only
+    @if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
     {
-      @using (Html.BeginForm("DeleteFlavor", "Treats")) //("Treats" == "TreatsContoller")
+      @using (Html.BeginForm("DeleteFlavor", "Treats"))
       {
         <p>@Html.Hidden("joinId", @join.FlavorTreatId) <input type="submit" value="Remove Flavor" class="btn"/></p>
       }
@@ -29,7 +29,7 @@ else
   }
 }
 <hr />
-@if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser) // modify this for Admin only
+@if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
 {
   <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }) |
   @Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }) |

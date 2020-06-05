@@ -93,21 +93,6 @@ namespace SweetAndSavory.Controllers
       return View(thisTreat);
     }
 
-    // bool checkDuplicateFlavor(DataTable table, int FlavorId)
-    // {
-    //   Treat Treat = new Treat();
-    //   foreach (DataRow row in table.Rows)
-    //   {
-    //     if(row[2].Equals(Treat.TreatId) && row[3].Equals(FlavorId))
-    //     return true;
-    //   }
-    //   return false;
-    // }
-    //
-    // if(!checkDuplicateFlavor(TreatId, FlavorId))
-    //     { execute function }
-
-
     [HttpPost]
     public ActionResult AddFlavor(Treat Treat, int FlavorId)
     {
@@ -119,37 +104,6 @@ namespace SweetAndSavory.Controllers
         return RedirectToAction("Index");
     }
       
-      // var thisFlavorId = _db.FlavorTreat.FirstOrDefault(FlavorTreat => FlavorTreat.FlavorId == FlavorId);
-      // Console.WriteLine(FlavorId + " Flavors Table Id");
-      // Console.WriteLine(thisFlavorId + "ThisFlavorId");
-      //   Console.WriteLine("That's a duplicate!");
-      //   return View();
-      // }
-      // else{
-
-    /*  
-    Entity Framework Attempt to find duplicates  
-    --------------------------------------------     
-    if (db.Orderss.Any(o => o.Transaction == txnId)) return;
-    if (FlavorTreat.Any(o => o.FlavorId = FlavorId))
-
-    This returns the first time the TreatId is met
-    --------------------------------------------------
-    var thisFlavorTreat = _db.FlavorTreat.FirstOrDefault(FlavorTreat => FlavorTreat.TreatId == Treat.TreatId);          
-    
-    ToDoList Lesson
-    ---------------------------------------------------
-    public async Task<ActionResult> AddCategory(int id)
-    {
-      Item thisItem = _db.Items.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(items => items.ItemId == id);
-      if (thisItem == null)
-      {
-        return RedirectToAction("Details", new {id = id});
-      }
-      ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-      return View(thisItem);
-    }
-    */  
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);

@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.TreatId) //pass Item ID to controller so it know which item to edit
+  @Html.HiddenFor(model => model.TreatId)
 
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)

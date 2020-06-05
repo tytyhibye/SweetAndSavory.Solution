@@ -87,20 +87,15 @@ namespace SweetAndSavory.Controllers
 
       if (!string.IsNullOrEmpty(search))
       {
-        // if (searchParam == "Flavor")
-        // {
-          foreach(Flavor flavor in model)
+        foreach(Flavor flavor in model)
+        {
+          if (flavor.Name.ToLower().Contains(search))
           {
-            if (flavor.Name.ToLower().Contains(search))
-            {
-              matches.Add(flavor);
-            }
+            matches.Add(flavor);
           }
         }
-        // if (searchParam == "Ingredient")
-        // {
-
-        // }
+      }
+       
       return View(matches);
     }
   }
