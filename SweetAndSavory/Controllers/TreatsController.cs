@@ -66,5 +66,58 @@ namespace SweetAndSavory.Controllers
       return View(thisTreat); // modify this for Admin access only
     }
 
+
+    public ActionResult Edit(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      return View(thisTreat);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Treat Treat, int FlavorId)
+    {
+      if (FlavorId != 0)
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = Treat.TreatId});
+      }
+      _db.Entry(Treat).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult AddFlavor(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      return View(thisTreat);
+    }
+
+    // bool checkDuplicateFlavor(DataTable table, int FlavorId)
+    // {
+    //   Treat Treat = new Treat();
+    //   foreach (DataRow row in table.Rows)
+    //   {
+    //     if(row[2].Equals(Treat.TreatId) && row[3].Equals(FlavorId))
+    //     return true;
+    //   }
+    //   return false;
+    // }
+    //
+    // if(!checkDuplicateFlavor(TreatId, FlavorId))
+    //     { execute function }
+
+
+    [HttpPost]
+    public ActionResult AddFlavor(Treat Treat, int FlavorId)
+    {
+      if (FlavorId != 0 )
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = Treat.TreatId }); 
+      }
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+      
   }
 }
