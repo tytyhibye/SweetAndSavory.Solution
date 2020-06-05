@@ -53,5 +53,18 @@ namespace SweetAndSavory.Controllers
       return RedirectToAction("Index");
     }
     
+    [Authorize]
+    public ActionResult Details(int id)
+    {
+      var thisTreat = _db.Treats
+        .Include(Treat => Treat.Flavors)
+        .ThenInclude(join => join.Flavor)
+        .Include(Treat => Treat.User)
+        .FirstOrDefault(Treat => Treat.TreatId == id);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ViewBag.IsCurrentUser = userId != null ? userId == thisTreat.User.Id : false;
+      return View(thisTreat); // modify this for Admin access only
+    }
+
   }
 }

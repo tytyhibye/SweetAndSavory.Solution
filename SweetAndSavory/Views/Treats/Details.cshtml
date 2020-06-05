@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavory.Models.Treat
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): </h3><h4>@Html.DisplayFor(model => model.Name)<h3>
+<h3>@Html.DisplayNameFor(model => model.Ingredients): </h3><h4>@Html.DisplayFor(model => model.Ingredients)</h4>
+<h3>@Html.DisplayNameFor(model => model.Description): </h3><h4>@Html.DisplayFor(model => model.Description)</h4>
+@if(@Model.Flavors.Count == 0)
+{
+  <p>This Treat hasn't been tagged with any flavors</p>
+}
+else
+{
+  <h3>Flavors:</h3>
+  @foreach(var join in Model.Flavors)
+  {
+    <p>@join.Flavor.Name</p>
+    @if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser) // modify this for Admin only
+    {
+      @using (Html.BeginForm("DeleteFlavor", "Treats")) //("Treats" == "TreatsContoller")
+      {
+        <p>@Html.Hidden("joinId", @join.TreatFlavorId) <input type="submit" value="Remove Flavor" class="btn"/></p>
+      }
+    }
+  }
+}
+<hr />
+@if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser) // modify this for Admin only
+{
+  <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }) |
+  @Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }) |
+  @Html.ActionLink("Add Flavor", "AddFlavor", new { id = Model.TreatId })</p> 
+}
