@@ -2,7 +2,7 @@
 
 #navBar {
   position:center;
-  width: auto;
+  width: relative;
   height: auto;
   color: rgb(70, 82, 73);
   font-weight: 700;
@@ -19,6 +19,20 @@
   text-align: center;
 }
 
+.nav{
+  display: flex;
+  justify-content: center;
+}
+
+#navBtn{
+  -webkit-animation: in 1s;
+  animation: in 1s;
+}
+#navBtn:hover {
+  -webkit-animation: out 1s;
+  animation: out 1s;
+}
+
 .splash{
   position: fixed center;
   width: relative;
@@ -27,13 +41,9 @@
   justify-content: center;
   align-items: center;
   
-  /* -webkit-animation: in 1s;
-  animation: in 1s; */
 }
 .splash:hover {
   animation: shadow-pulse 1s infinite;
-  /* -webkit-animation: out 1s;
-  animation: out 1s; */
 }
 
 footer{
@@ -85,7 +95,6 @@ li {
 
 body {
   text-align: center;
-  /* padding: 10%; */
   height:100vh;
   width:100vw;
   background-color: rgb(236, 255, 221);
@@ -159,7 +168,7 @@ input{
 }
 
 
-/* @-webkit-keyframes in {
+@-webkit-keyframes in {
   from   { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg);}
 }
@@ -177,7 +186,7 @@ input{
 @keyframes out {
   0%   { -webkit-transform: rotate(360deg); }
   100% { -webkit-transform: rotate(0deg); }
-} */
+}
 
 @keyframes shadow-pulse
 {
