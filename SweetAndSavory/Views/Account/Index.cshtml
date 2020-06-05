@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavory.Controllers
+<hr />
+<h2>Welcome to Pierre's Sweet and Savory</h2>
+<p>A site where you can collect and organize your inventory.</p>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+  
+}
+else
+{
+  <form action="Account/Login" method="get">
+  <button type="submit" class="btn">Log In</button>
+  </form>
+  <br>
+  <p>Not registered? Create an account @Html.ActionLink("here", "Register")</p>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>Currently logged in using email - @User.Identity.Name</p>
+  <br>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+    <input type="submit" value="Log out" class="btn" />
+  }
+}
