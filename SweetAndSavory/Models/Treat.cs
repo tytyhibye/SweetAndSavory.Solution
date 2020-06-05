@@ -14,6 +14,6 @@ namespace SweetAndSavory.Models
     public string Ingredients { get; set; }
     public string Descriptions { get; set; }
     public virtual ApplicationUser User { get; set; }
-    public ICollection<TreatFlavor> Flavors { get; }
+    public ICollection<FlavorTreat> Flavors { get; }
   }   
 }
