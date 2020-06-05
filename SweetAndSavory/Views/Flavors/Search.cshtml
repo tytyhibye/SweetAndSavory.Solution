@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavory.Models;
+
+<h3>Search Results:</h3>
+<hr />
+
+@foreach(Flavor flavor in Model)
+{
+  <h4>@Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new {id = flavor.FlavorId})</h4>
+}
