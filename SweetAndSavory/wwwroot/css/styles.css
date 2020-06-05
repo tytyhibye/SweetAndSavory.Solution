@@ -33,6 +33,11 @@
   animation: out 1s;
 }
 
+img {
+  opacity: 0.86;
+  border-radius: 25%;
+}
+
 .splash{
   position: fixed center;
   width: relative;
@@ -40,6 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 25%;
   
 }
 .splash:hover {
@@ -114,7 +120,7 @@ body {
 }
 
 .jumbotron {
-  background-image: url('~/img/frame.jpg') no-repeat center center;
+  background-image: url(~/img/frame.jpg);
   background-size: cover;
   background-color: rgb(238, 229, 229, 0.34);
   opacity: 0.34;

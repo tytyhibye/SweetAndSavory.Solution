@@ -2,12 +2,20 @@
   Layout = "_Layout";
 }
 
-@using SweetAndSavory.Models;
+@using SweetAndSavory.Models
+@model List<SweetAndSavory.Models.Flavor>
 
 <h3>Search Results:</h3>
 <hr />
-
-@foreach(Flavor flavor in Model)
+@if (Model.Count == 0)
 {
-  <h4>@Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new {id = flavor.FlavorId})</h4>
+  <p>No Flavors Match This Search</p>
+}
+else
+{
+  <h4>These Flavors Found:</h4>
+  @foreach(Flavor flavor in Model)
+  {
+    <h4>@Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new {id = flavor.FlavorId})</h4>
+  }
 }
