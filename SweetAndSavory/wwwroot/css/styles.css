@@ -26,9 +26,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  /* -webkit-animation: in 1s;
+  animation: in 1s; */
 }
 .splash:hover {
   animation: shadow-pulse 1s infinite;
+  /* -webkit-animation: out 1s;
+  animation: out 1s; */
 }
 
 footer{
@@ -84,7 +89,8 @@ body {
   width:100vw;
   background-color: rgb(236, 255, 221);
   background: linear-gradient(rgb(124, 12, 40), rgb(192, 91, 116), rgb(255, 208, 148), rgba(252, 218, 175));
-  background-position: center; 
+  background-position: center;
+  background-attachment: fixed; 
   background-repeat: no-repeat; 
   background-size: cover;
   display: block;
@@ -98,7 +104,10 @@ body {
 }
 
 .jumbotron {
-  background-color: rgba(235, 235, 235, 0.349);
+  background-image: url('~/img/frame.jpg') no-repeat center center;
+  background-size: cover;
+  background-color: rgb(238, 229, 229, 0.34);
+  opacity: 0.34;
   text-align: center;
   margin: auto;
   width: 80%;
@@ -115,6 +124,7 @@ body {
 .bounceInDown {
   -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
+  animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
@@ -137,7 +147,37 @@ body {
 }
 
 
+/* @-webkit-keyframes in {
+  from   { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg);}
+}
+
+@-webkit-keyframes out {
+  0%   { -webkit-transform: rotate(360deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}
+
+@keyframes in {
+  from   { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes out {
+  0%   { -webkit-transform: rotate(360deg); }
+  100% { -webkit-transform: rotate(0deg); }
+} */
+
 @keyframes shadow-pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+  }
+}
+
+@-webkit-keyframes shadow-pulse
 {
   0% {
     box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
