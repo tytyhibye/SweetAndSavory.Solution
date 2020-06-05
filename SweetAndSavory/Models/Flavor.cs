@@ -6,7 +6,7 @@ namespace SweetAndSavory.Models
   {
     public Flavor()
     {
-      this.Recipes = new HashSet<FlavorTreat>();
+      this.Treats = new HashSet<FlavorTreat>();
     }
 
     public int FlavorId { get; set; }

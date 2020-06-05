@@ -47,7 +47,7 @@ namespace SweetAndSavory.Controllers
       _db.Treats.Add(Treat);
       if (FlavorId != 0)
       {
-        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = Treat.TreatId });
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = Treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -79,7 +79,7 @@ namespace SweetAndSavory.Controllers
     {
       if (FlavorId != 0)
       {
-        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = Treat.TreatId});
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = Treat.TreatId});
       }
       _db.Entry(Treat).State = EntityState.Modified;
       _db.SaveChanges();
@@ -113,11 +113,85 @@ namespace SweetAndSavory.Controllers
     {
       if (FlavorId != 0 )
       {
-        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = Treat.TreatId }); 
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = Treat.TreatId }); 
       }
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
       
+      // var thisFlavorId = _db.FlavorTreat.FirstOrDefault(FlavorTreat => FlavorTreat.FlavorId == FlavorId);
+      // Console.WriteLine(FlavorId + " Flavors Table Id");
+      // Console.WriteLine(thisFlavorId + "ThisFlavorId");
+      //   Console.WriteLine("That's a duplicate!");
+      //   return View();
+      // }
+      // else{
+
+    /*  
+    Entity Framework Attempt to find duplicates  
+    --------------------------------------------     
+    if (db.Orderss.Any(o => o.Transaction == txnId)) return;
+    if (FlavorTreat.Any(o => o.FlavorId = FlavorId))
+
+    This returns the first time the TreatId is met
+    --------------------------------------------------
+    var thisFlavorTreat = _db.FlavorTreat.FirstOrDefault(FlavorTreat => FlavorTreat.TreatId == Treat.TreatId);          
+    
+    ToDoList Lesson
+    ---------------------------------------------------
+    public async Task<ActionResult> AddCategory(int id)
+    {
+      Item thisItem = _db.Items.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(items => items.ItemId == id);
+      if (thisItem == null)
+      {
+        return RedirectToAction("Details", new {id = id});
+      }
+      ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      return View(thisItem);
+    }
+    */  
+    public ActionResult Delete(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      return View(thisTreat);
+    }      
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      _db.Treats.Remove(thisTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteFlavor(int joinId)
+    {
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpGet("/IngredientSearch")]
+    public ActionResult IngredientSearch(string search)
+    {
+      List<Treat> model = _db.Treats.ToList();
+      Treat match = new Treat();
+      List<Treat> matches = new List<Treat>{};
+
+      if (!string.IsNullOrEmpty(search))
+      {
+        foreach(Treat Treat in model)
+        {
+          if (Treat.Ingredients.ToLower().Contains(search))
+          {
+            matches.Add(Treat);
+          }
+        } 
+      }
+      return View(matches);
+    }
   }
 }

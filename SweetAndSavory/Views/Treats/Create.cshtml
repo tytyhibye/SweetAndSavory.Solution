@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model SweetAndSavory.Models.Recipe
+@model SweetAndSavory.Models.Treat
 
 <h3>Add a new Treat:</h3>
 <hr />
@@ -18,9 +18,9 @@
   @Html.TextBoxFor(model => model.Description, new { type ="list", required = "required" })
 
   <br>
-  @Html.Label("Add Flavor to recipe:")
+  @Html.Label("Add Flavor to treat:")
   @Html.DropDownList("FlavorId")  // for required: , null, htmlAttributes: new { @class = "form-control", required = "required" }
   <br>
   <br>
-  <input type="submit" value="Create Recipe" class="btn" />
+  <input type="submit" value="Create Treat" class="btn" />
 }

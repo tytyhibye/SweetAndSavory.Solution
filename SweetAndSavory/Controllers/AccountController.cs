@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using SweetAndSavory.Models;
-using System.Threading.Tasks;
 using SweetAndSavory.ViewModels;
+using System.Threading.Tasks;
 
 namespace SweetAndSavory.Controllers
 {
