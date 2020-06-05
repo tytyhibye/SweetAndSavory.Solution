@@ -72,13 +72,13 @@ dotnet ef database update
 |Behavior|Input|Output|
 |-----|-----|-----|
 |Pierre is greeted and given option to register as new user or login as existing user|"home"|"localhost.5000/"|
-|Pierre can view existing Items|"all items"|"5000/items/index"|
-|Pierre can add item via form submission |"input"|"5000/items/{itemId}"|
-|Pierre can edit extising item information|"edit"|"5000/edit/{itemId}"|
-|Pierre can add flavors to item|"Add flavor"|"5000/flavor/new"|
+|Pierre can view existing treats|"all treats"|"5000/treats/index"|
+|Pierre can add treat via form submission |"input"|"5000/treats/{treatId}"|
+|Pierre can edit extising treat information|"edit"|"5000/edit/{treatId}"|
+|Pierre can add flavors to treat|"Add flavor"|"5000/flavor/new"|
 |Pierre populates the order details and form submission adds input data|"input"|"5000/flavor/{flavorId}"|
 |Pierre can delete existing flavors|"Delete Flavor"|"5000/flavor/delete"|
-|Pierre is given additional option to delete existing items|"Delete item"|"5000/item/delete"|
+|Pierre is given additional option to delete existing treats|"Delete treat"|"5000/item/delete"|
 
 ## _Legal_
 
