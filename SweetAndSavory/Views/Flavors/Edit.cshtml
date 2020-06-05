@@ -10,12 +10,12 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.FlavorId)
+  @Html.HiddenFor(model => model.FlavorId)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
 
-    <input type="submit" value="Save" class="btn"/>
+  <input type="submit" value="Save" class="btn"/>
 }
 <br>
 <p>@Html.ActionLink("Back to flavors", "Index")</p>
