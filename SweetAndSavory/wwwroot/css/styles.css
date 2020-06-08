@@ -46,7 +46,6 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 25%;
-  
 }
 .splash:hover {
   animation: shadow-pulse 1s infinite;
@@ -103,15 +102,13 @@ body {
   text-align: center;
   height:100vh;
   width:100vw;
-  background-color: rgb(236, 255, 221);
   background: linear-gradient(rgb(124, 12, 40), rgb(192, 91, 116), rgb(255, 208, 148), rgba(252, 218, 175));
   background-position: center;
   background-attachment: fixed; 
   background-repeat: no-repeat; 
   background-size: cover;
-  display: block;
+  /* display: block; */
   min-height: 100%;
-  background-attachment: fixed;
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
